@@ -4,3 +4,6 @@ terraform.tfstate
 terraform.tfstate.backup
 crash.log
 *.tfplan
+terraform.tfstate.1744549495.backup
+terraform.tfstate.1744532102.backup
+terraform.tfstate.1744387039.backup
