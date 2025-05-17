@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: shirish1612/todo_ngnix:frontend-v1
+          ports:
+            - containerPort: 80
+          resources:                # ADD THIS BLOCK
+            requests:
+              memory: "128Mi"         # minimum 128MB memory
+              cpu: "250m"             # minimum 0.25 CPU core
+            limits:
+              memory: "256Mi"         # maximum 256MB memory
+              cpu: "500m"
