@@ -26,7 +26,7 @@ jobs:
       # --- Backend Image ---
       - name: Build Backend Docker image
         run: |
-          docker build -t $DOCKER_REPO:backend-v1 ./backend
+          docker build -t $DOCKER_REPO:backend-v1 ./api
 
       - name: Push Backend Docker image
         run: |
@@ -35,7 +35,7 @@ jobs:
       # --- Frontend Image ---
       - name: Build Frontend Docker image
         run: |
-          docker build -t $DOCKER_REPO:frontend-v1 ./frontend
+          docker build -t $DOCKER_REPO:frontend-v1 ./client
 
       - name: Push Frontend Docker image
         run: |
