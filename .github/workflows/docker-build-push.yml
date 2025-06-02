@@ -1,5 +1,3 @@
-# .github/workflows/docker-build-push.yml
-
 name: Build and Push Docker Images
 
 on:
@@ -26,7 +24,7 @@ jobs:
       # --- Backend Image ---
       - name: Build Backend Docker image
         run: |
-          docker build -t $DOCKER_REPO:backend-v1 ./api
+          docker build -f ./api/Dockerfile.backend -t $DOCKER_REPO:backend-v1 ./api
 
       - name: Push Backend Docker image
         run: |
@@ -35,7 +33,7 @@ jobs:
       # --- Frontend Image ---
       - name: Build Frontend Docker image
         run: |
-          docker build -t $DOCKER_REPO:frontend-v1 ./client
+          docker build -f ./client/Dockerfile.frontend -t $DOCKER_REPO:frontend-v1 ./client
 
       - name: Push Frontend Docker image
         run: |
