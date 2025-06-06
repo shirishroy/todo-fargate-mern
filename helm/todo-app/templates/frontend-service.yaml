@@ -1,0 +1,12 @@
+# helm/todo-app/templates/frontend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.appName }}-frontend-service
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: {{ .Values.appName }}-frontend
+  ports:
+    - port: {{ .Values.service.frontendPort }}
+      targetPort: 80

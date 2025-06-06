@@ -1,0 +1,25 @@
+# values.yaml
+
+# Global app name
+appName: todo-app
+
+# Image configuration
+image:
+  frontend:
+    repository: shirish1612/todo_ngnix
+    tag: frontend-v1
+  backend:
+    repository: shirish1612/todo_ngnix
+    tag: backend-v1
+  pullPolicy: IfNotPresent
+
+# Kubernetes service type
+service:
+  type: ClusterIP
+  frontendPort: 80
+  backendPort: 3000
+
+# Number of replicas
+replicaCount: 1
+
+backendSecretName: mongo-secret
