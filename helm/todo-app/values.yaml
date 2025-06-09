@@ -23,3 +23,21 @@ service:
 replicaCount: 1
 
 backendSecretName: mongo-secret
+alertmanager:
+  enabled: true
+  config:
+    global:
+      resolve_timeout: 5m
+    route:
+      group_by: ['alertname']
+      group_wait: 10s
+      group_interval: 5m
+      repeat_interval: 3h
+      receiver: 'slack-notifications'
+    receivers:
+      - name: 'slack-notifications'
+        slack_configs:
+          - api_url: 'https://hooks.slack.com/services/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'
+            channel: '#alerts'
+            send_resolved: true
+
